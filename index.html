@@ -2323,16 +2323,19 @@
       const music = document.getElementById('bg-music');
       let musicStarted = false;
 
-      function playOnScroll() {
-        if (!musicStarted) {
-          music.play().then(() => {
-            musicStarted = true;
-            window.removeEventListener('scroll', playOnScroll);
-          }).catch(() => {});
-        }
+      function startMusic() {
+        if (musicStarted) return;
+        music.play().then(() => {
+          musicStarted = true;
+          ['scroll','click','touchstart','keydown','mousemove'].forEach(e => {
+            window.removeEventListener(e, startMusic);
+          });
+        }).catch(() => {});
       }
 
-      window.addEventListener('scroll', playOnScroll);
+      ['scroll','click','touchstart','keydown','mousemove'].forEach(e => {
+        window.addEventListener(e, startMusic, { passive: true });
+      });
     </script>
   </body>
 </html>
