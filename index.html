@@ -1,620 +1,2317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Interiora Design - Jasa Desain Interior Profesional</title>
-    
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDNN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Custom Styles -->
     <style>
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* === KEYFRAME ANIMATIONS === */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-        
-        @keyframes blink {
-            0%, 100% { border-color: transparent; }
-            50% { border-color: #1F2937; }
-        }
-        
-        @keyframes slideLeftContinuous {
-            0% {
-                transform: translateX(-15px);
-            }
-            50% {
-                transform: translateX(15px);
-            }
-            100% {
-                transform: translateX(-15px);
-            }
-        }
-        
-        @keyframes slideRightContinuous {
-            0% {
-                transform: translateX(15px);
-            }
-            50% {
-                transform: translateX(-15px);
-            }
-            100% {
-                transform: translateX(15px);
-            }
-        }
-        
-        /* === ANIMATION CLASSES === */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-fade-in-down {
-            animation: fadeInDown 0.8s ease-out forwards;
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Typing Effect */
-        .typing-text {
-            display: inline-block;
-            overflow: hidden;
-            border-right: 3px solid #1F2937;
-            white-space: nowrap;
-            animation: typing 5s steps(25, end) infinite, blink 0.75s step-end infinite;
-        }
-        
-        .typing-text.typing-done {
-            animation: typing 5s steps(25, end) infinite, blink 0.75s step-end infinite;
-        }
-        
-        /* Gallery Continuous Animation */
-        .animate-slide-continuous-left {
-            animation: slideLeftContinuous 3s ease-in-out infinite;
-        }
-        
-        .animate-slide-continuous-right {
-            animation: slideRightContinuous 3s ease-in-out infinite;
-        }
-        
-        /* === GALLERY EFFECTS === */
-        .gallery-item {
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .gallery-item img {
-            transition: transform 0.5s ease, filter 0.3s ease;
-        }
-        
-        .gallery-item:hover img {
-            transform: scale(1.15) rotate(2deg);
-            filter: brightness(0.8);
-        }
-        
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(31, 41, 55, 0.6));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-        
-        /* === SERVICE CARD EFFECTS === */
-        .service-card {
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .service-card:hover {
-            border-color: #1F2937;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body class="bg-white text-gray-800 antialiased">
+      /* === WEBSITE SCALING 80% - FIT FULL WIDTH === */
+      * {
+        box-sizing: border-box;
+      }
 
+      html {
+        font-size: 12.8px; /* 16px * 0.8 = 12.8px */
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100vw;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Remove outline/border on service cards */
+      .service-card,
+      .service-card *,
+      .service-image,
+      .service-description {
+        outline: none !important;
+        border: none !important;
+      }
+
+      .service-card:focus,
+      .service-card *:focus,
+      .service-image:hover,
+      .service-description:hover {
+        outline: none !important;
+        border: none !important;
+      }
+
+      /* === KEYFRAME ANIMATIONS === */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes slideInFromLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInFromRight {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInFromTop {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInFromBottom {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Animasi Keluar saat Scroll */
+      @keyframes slideOutToLeft {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(-150px);
+        }
+      }
+
+      @keyframes slideOutToRight {
+        from {
+          opacity: 1;
+          transform: translateX(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateX(150px);
+        }
+      }
+
+      @keyframes slideOutToTop {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(-80px);
+        }
+      }
+
+      @keyframes slideOutToBottom {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(80px);
+        }
+      }
+      /* === ANIMATION CLASSES === */
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .animate-fade-in-down {
+        animation: fadeInDown 0.8s ease-out forwards;
+      }
+
+      .animate-float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Hero Animation - Entrance */
+      .animate-slide-in-left {
+        animation: slideInFromLeft 1.2s ease-out forwards;
+      }
+
+      .animate-slide-in-right {
+        animation: slideInFromRight 1.2s ease-out forwards;
+      }
+
+      .animate-slide-in-top {
+        animation: slideInFromTop 1.2s ease-out forwards;
+      }
+
+      /* Hero Animation - Exit */
+      .animate-slide-out-left {
+        animation: slideOutToLeft 1.2s ease-in-out forwards;
+      }
+
+      .animate-slide-out-right {
+        animation: slideOutToRight 1.2s ease-in-out forwards;
+      }
+
+      .animate-slide-out-top {
+        animation: slideOutToTop 1.2s ease-in-out forwards;
+      }
+      /* Services Animation Classes */
+      .services-slide-in-top {
+        animation: slideInFromTop 0.9s ease-out forwards !important;
+      }
+
+      .services-slide-in-bottom {
+        animation: slideInFromBottom 0.9s ease-out forwards !important;
+      }
+
+      .services-slide-in-left {
+        animation: slideInFromLeft 0.9s ease-out forwards !important;
+      }
+
+      .services-slide-in-right {
+        animation: slideInFromRight 0.9s ease-out forwards !important;
+      }
+
+      .services-slide-out-top {
+        animation: slideOutToTop 0.7s ease-in forwards !important;
+      }
+
+      .services-slide-out-bottom {
+        animation: slideOutToBottom 0.7s ease-in forwards !important;
+      }
+
+      .services-slide-out-left {
+        animation: slideOutToLeft 0.7s ease-in forwards !important;
+      }
+
+      .services-slide-out-right {
+        animation: slideOutToRight 0.7s ease-in forwards !important;
+      }
+
+      /* === GALLERY EFFECTS === */
+      .gallery-item {
+        overflow: hidden;
+        position: relative;
+        opacity: 0;
+      }
+
+      /* Puzzle Animation - masuk dari berbagai arah dengan rotasi */
+      @keyframes puzzleFromTopLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-150%, -150%) rotate(-45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromTopRight {
+        0% {
+          opacity: 0;
+          transform: translate(150%, -150%) rotate(45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottomLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-150%, 150%) rotate(45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottomRight {
+        0% {
+          opacity: 0;
+          transform: translate(150%, 150%) rotate(-45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromCenter {
+        0% {
+          opacity: 0;
+          transform: translate(0, 0) rotate(180deg) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-200%, 0) rotate(-90deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromRight {
+        0% {
+          opacity: 0;
+          transform: translate(200%, 0) rotate(90deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromTop {
+        0% {
+          opacity: 0;
+          transform: translate(0, -200%) rotate(-180deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottom {
+        0% {
+          opacity: 0;
+          transform: translate(0, 200%) rotate(180deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      /* Puzzle Animation - masuk dari berbagai arah dengan rotasi */
+      @keyframes puzzleFromTopLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-150%, -150%) rotate(-45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromTopRight {
+        0% {
+          opacity: 0;
+          transform: translate(150%, -150%) rotate(45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottomLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-150%, 150%) rotate(45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottomRight {
+        0% {
+          opacity: 0;
+          transform: translate(150%, 150%) rotate(-45deg) scale(0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromCenter {
+        0% {
+          opacity: 0;
+          transform: translate(0, 0) rotate(180deg) scale(0.1);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromLeft {
+        0% {
+          opacity: 0;
+          transform: translate(-200%, 0) rotate(-90deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromRight {
+        0% {
+          opacity: 0;
+          transform: translate(200%, 0) rotate(90deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromTop {
+        0% {
+          opacity: 0;
+          transform: translate(0, -200%) rotate(-180deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      @keyframes puzzleFromBottom {
+        0% {
+          opacity: 0;
+          transform: translate(0, 200%) rotate(180deg) scale(0.4);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+      }
+
+      /* Apply random puzzle animations to each item - synchronized timing */
+      .gallery-item:nth-child(1) {
+        animation: puzzleFromTopLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          0.1s forwards;
+      }
+      .gallery-item:nth-child(2) {
+        animation: puzzleFromRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          0.12s forwards;
+      }
+      .gallery-item:nth-child(3) {
+        animation: puzzleFromBottomLeft 1.2s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.14s forwards;
+      }
+      .gallery-item:nth-child(4) {
+        animation: puzzleFromTop 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.16s
+          forwards;
+      }
+      .gallery-item:nth-child(5) {
+        animation: puzzleFromBottomRight 1.2s
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s forwards;
+      }
+      .gallery-item:nth-child(6) {
+        animation: puzzleFromLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s
+          forwards;
+      }
+      .gallery-item:nth-child(7) {
+        animation: puzzleFromTopRight 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          0.22s forwards;
+      }
+      .gallery-item:nth-child(8) {
+        animation: puzzleFromBottom 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.24s
+          forwards;
+      }
+      .gallery-item:nth-child(9) {
+        animation: puzzleFromCenter 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          0.26s forwards;
+      }
+      .gallery-item:nth-child(n+10) {
+        animation: puzzleFromTopLeft 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+          0.28s forwards;
+      }
+
+      .gallery-item img {
+        transition:
+          transform 0.4s ease,
+          filter 0.4s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+        filter: brightness(0.85);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.75),
+          rgba(31, 41, 55, 0.55)
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      /* === SERVICE CARD EFFECTS === */
+      .service-card {
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .service-card:hover {
+        border-color: #1f2937;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* === GALLERY TAB BUTTONS === */
+      .gallery-tab {
+        background: white;
+        color: #4b5563;
+        border: 2px solid #e5e7eb;
+        cursor: pointer;
+      }
+
+      .gallery-tab:hover {
+        border-color: #9ca3af;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-tab.active {
+        background: #1f2937;
+        color: white;
+        border-color: #1f2937;
+        box-shadow: 0 6px 20px rgba(31, 41, 55, 0.3);
+      }
+
+      /* === INTERACTIVE SPOTLIGHT EFFECT === */
+      .blur-cursor {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.4) 0%,
+          rgba(255, 255, 255, 0.2) 30%,
+          transparent 70%
+        );
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        mix-blend-mode: lighten;
+      }
+
+      /* === HERO BACKGROUND SLIDER === */
+      @keyframes heroSlider1 {
+        0%,
+        33.33% {
+          opacity: 1;
+        }
+        36.33%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes heroSlider2 {
+        0%,
+        30.33% {
+          opacity: 0;
+        }
+        33.33%,
+        66.66% {
+          opacity: 1;
+        }
+        69.66%,
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes heroSlider3 {
+        0%,
+        63.66% {
+          opacity: 0;
+        }
+        66.66%,
+        100% {
+          opacity: 1;
+        }
+      }
+
+     .hero-section {
+      position: relative;
+      background-color: #111827;
+      width: 100%;
+      min-height: 100svh;
+    }
+
+    /* Fallback browser lama */
+    @media not all and (min-height: 1px) {
+      .hero-section {
+        min-height: 100vh;
+      }
+    }
+
+    /* MOBILE ONLY */
+    @media (max-width: 767px) {
+      .hero-section {
+        min-height: 50vh;
+      }
+    }
+
+      /* Background Layer 1 */
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("img/banner1.jpeg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        animation: heroSlider1 9s infinite;
+        z-index: 0;
+      }
+
+      /* Background Layer 2 */
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("img/dapur1.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        animation: heroSlider2 9s infinite;
+        z-index: 0;
+      }
+
+      /* Dark Overlay untuk readability */
+      .hero-section .hero-overlay {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 23, 42, 0.4),
+          rgba(31, 41, 55, 0.3)
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      /* === NAVBAR SMOOTH BLUR === */
+      nav {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    background-color 0.5s ease;
+        background-color: rgba(0, 0, 0, 0.35);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        transform: translateY(0);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav.scrolled {
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      nav.navbar-hidden {
+        transform: translateY(-100%) !important;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* Smooth link transitions */
+      nav a {
+        position: relative;
+        transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: currentColor;
+        transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      nav a:hover::after,
+      nav a.active::after {
+        width: 100%;
+      }
+
+      nav a.active {
+        color: #fbbf24;
+      }
+
+      /* Mobile menu smooth animation */
+      #mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.3s ease,
+                    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      #mobile-menu.show {
+        max-height: 300px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #mobile-menu a {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform: translateX(0);
+      }
+
+      #mobile-menu a:hover {
+        transform: translateX(8px);
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      /* Mobile menu button animation */
+      #mobile-menu-btn {
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      #mobile-menu-btn:active {
+        transform: scale(0.9);
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 antialiased">
     <!-- ========== NAVBAR ========== -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Logo / Nama Perusahaan -->
-            <div class="text-2xl font-bold text-gray-900">
-                Interiora<span class="text-gray-600">Design</span>
-            </div>
-            
-            <!-- Menu Desktop -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-gray-900 transition-all duration-300 font-medium">Home</a>
-                <a href="#services" class="text-gray-700 hover:text-gray-900 transition-all duration-300 font-medium">Services</a>
-                <a href="#gallery" class="text-gray-700 hover:text-gray-900 transition-all duration-300 font-medium">Gallery</a>
-                <a href="#contact" class="text-gray-700 hover:text-gray-900 transition-all duration-300 font-medium">Contact</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none hover:text-gray-900 transition">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
+    <nav class="backdrop-blur-md fixed w-full top-0 z-50 px-4">
+      <div
+        class="w-full px-6 py-4 flex justify-between items-center"
+      >
+        <!-- Logo / Nama Perusahaan -->
+        <div class="flex flex-col items-center justify-center" style="line-height: 1; gap: 1px;">
+          <span class="text-3xl font-bold text-white" style="font-family: 'Cinzel', serif; letter-spacing: 0.2em; line-height: 1; display: block; padding: 0; margin: 0; text-align: center;">ELDITI</span>
+          <span class="font-medium text-amber-300" style="font-family: 'Montserrat', sans-serif; font-size: 0.5rem; letter-spacing: 0.3em; line-height: 1; display: block; padding: 0; margin: 0; text-align: center;">KREATIVA NUSANTARA</span>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <a href="#home" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition font-medium">Home</a>
-            <a href="#services" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition font-medium">Services</a>
-            <a href="#gallery" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition font-medium">Gallery</a>
-            <a href="#contact" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 transition font-medium">Contact</a>
+
+        <!-- Menu Desktop -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-white hover:text-amber-300 transition-all duration-300 font-medium"
+            data-i18n="nav-home">Beranda</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-white hover:text-amber-300 transition-all duration-300 font-medium"
+            data-i18n="nav-services">Layanan</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-white hover:text-amber-300 transition-all duration-300 font-medium"
+            data-i18n="nav-about">Tentang</a
+          >
+          <a
+            href="#gallery"
+            class="nav-link text-white hover:text-amber-300 transition-all duration-300 font-medium"
+            data-i18n="nav-gallery">Galeri</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-white hover:text-amber-300 transition-all duration-300 font-medium"
+            data-i18n="nav-contact">Kontak</a
+          >
+          <!-- Language Toggle -->
+          <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-sm font-semibold px-3 py-1.5 rounded-full transition-all duration-300">
+            <span id="lang-flag">🇺🇸</span>
+            <span id="lang-label">EN</span>
+          </button>
         </div>
+
+        <!-- Mobile Menu Button + Lang Toggle -->
+        <div class="md:hidden flex items-center gap-3">
+          <button id="lang-toggle-mobile" onclick="toggleLanguage()" class="flex items-center gap-1 bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs font-semibold px-2.5 py-1 rounded-full transition-all duration-300">
+            <span id="lang-flag-mobile">🇺🇸</span>
+            <span id="lang-label-mobile">EN</span>
+          </button>
+          <button
+            id="mobile-menu-btn"
+            class="text-white focus:outline-none hover:text-gray-300 transition"
+          >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden bg-slate-900/60 backdrop-blur-md border-t border-white/10"
+      >
+        <a
+          href="#home"
+          class="mobile-link block px-6 py-3 text-white transition font-medium"
+          data-i18n="nav-home">Beranda</a
+        >
+        <a
+          href="#services"
+          class="mobile-link block px-6 py-3 text-white transition font-medium"
+          data-i18n="nav-services">Layanan</a
+        >
+        <a
+          href="#about"
+          class="mobile-link block px-6 py-3 text-white transition font-medium"
+          data-i18n="nav-about">Tentang</a
+        >
+        <a
+          href="#gallery"
+          class="mobile-link block px-6 py-3 text-white transition font-medium"
+          data-i18n="nav-gallery">Galeri</a
+        >
+        <a
+          href="#contact"
+          class="mobile-link block px-6 py-3 text-white transition font-medium"
+          data-i18n="nav-contact">Kontak</a
+        >
+      </div>
     </nav>
 
     <!-- ========== HERO SECTION ========== -->
-    <section id="home" class="pt-24 pb-20 bg-gradient-to-br from-gray-50 to-white min-h-screen flex items-center relative overflow-hidden">
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                
-                <!-- Text Content -->
-                <div class="text-center lg:text-left order-2 lg:order-1">
-                    <!-- Headline -->
-                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                        <span class="typing-text" id="typing-headline">Jasa Desain Interior</span>
-                    </h1>
-                    
-                    <!-- Subheadline -->
-                    <p class="text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
-                        Wujudkan ruang impian Anda dengan desain interior modern, fungsional, dan elegan. Kami hadirkan solusi terbaik untuk rumah dan kantor Anda.
-                    </p>
-                    
-                    <!-- CTA Button -->
-                    <a href="#contact" class="inline-block bg-gray-900 text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-fade-in-up" style="animation-delay: 0.4s;">
-                        💬 Konsultasi Sekarang
-                    </a>
-                </div>
-                
-                <!-- Hero Image -->
-                <div class="order-1 lg:order-2 animate-fade-in-up" style="animation-delay: 0.6s;">
-                    <div class="relative">
-                        <!-- Main Image -->
-                        <div class="rounded-2xl overflow-hidden border-4 border-gray-200 shadow-2xl transform hover:scale-105 transition-all duration-500">
-                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop" 
-                                 alt="Modern Interior Design" 
-                                 class="w-full h-auto object-cover">
-                        </div>
-                        
-                        <!-- Floating Small Image 1 -->
-                        <div class="hidden lg:block absolute -top-6 -right-6 w-32 h-32 rounded-xl overflow-hidden border-3 border-gray-300 shadow-xl animate-float">
-                            <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=200&h=200&fit=crop" 
-                                 alt="Living Room" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                        
-                        <!-- Floating Small Image 2 -->
-                        <div class="hidden lg:block absolute -bottom-6 -left-6 w-32 h-32 rounded-xl overflow-hidden border-3 border-gray-300 shadow-xl animate-float" style="animation-delay: 1s;">
-                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&h=200&fit=crop" 
-                                 alt="Bedroom" 
-                                 class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+    <section
+      id="home"
+      class="hero-section flex items-center relative overflow-hidden pt-20"
+    >
+      <!-- Background Layer 3 -->
+      <div
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('img/santai1.jpg');
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+          animation: heroSlider3 9s infinite;
+          z-index: 0;
+        "
+      ></div>
+
+      <!-- Dark Overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Interactive Blur Cursor -->
+      <div id="blur-cursor" class="blur-cursor" style="opacity: 0"></div>
+
+      <div class="w-full px-6 relative z-10 flex items-center justify-center min-h-[50vh] md:min-h-screen">
+        <div class="mx-auto px-4 md:px-8 w-full max-w-4xl">
+          
+          <!-- Text Content -->
+          <div class="text-center">
+
+            <!-- Headline -->
+            <h1
+              id="hero-title"
+              class="text-xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-6 leading-snug md:leading-tight animate-slide-in-left"
+              style="opacity: 0"
+              data-i18n="hero-title"
+            >
+              General Contractor Konstruksi &amp; Interior
+            </h1>
+
+            <!-- Subheadline -->
+            <p
+              id="hero-description"
+              class="text-sm md:text-xl lg:text-2xl text-gray-300 mb-4 md:mb-8 leading-normal md:leading-relaxed animate-slide-in-right"
+              style="opacity: 0; animation-delay: 0.8s"
+              data-i18n="hero-description"
+            >
+              Setiap detail menentukan keindahan dan kekuatan sebuah bangunan. 
+              Dengan perpaduan jasa konstruksi presisi dan sentuhan desain interior eksklusif, 
+              kami hadirkan ruang terbaik untuk Anda.
+            </p>
+
+            <!-- CTA Button -->
+            <a
+              id="hero-cta"
+              href="#contact"
+              class="inline-block bg-transparent border-2 border-white text-white px-5 py-2 md:px-8 md:py-4 rounded-lg text-sm md:text-lg font-bold hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105 animate-slide-in-top"
+              style="opacity: 0; animation-delay: 1.6s"
+              data-i18n="hero-cta"
+            >
+              Konsultasi Gratis
+            </a>
+
+          </div>
         </div>
+      </div>
+      </section>
     </section>
 
     <!-- ========== SERVICES SECTION ========== -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            
-            <!-- Section Title -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-down">Layanan Kami</h2>
-                <p class="text-gray-600 text-lg md:text-xl animate-fade-in-down" style="animation-delay: 0.1s;">Solusi desain interior terpadu untuk kebutuhan Anda</p>
-                <div class="w-24 h-1 bg-gray-900 mx-auto mt-4 animate-fade-in-down" style="animation-delay: 0.2s;"></div>
-            </div>
-            
-            <!-- Service Items -->
-            <div class="max-w-6xl mx-auto space-y-12">
-                
-                <!-- Service 1: Desain Interior Rumah -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-50 rounded-xl overflow-hidden service-card">
-                    <!-- Image -->
-                    <div class="relative h-64 md:h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800&h=600&fit=crop" 
-                             alt="Desain Interior Rumah" 
-                             class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
-                        <div class="absolute top-4 left-4 text-5xl animate-float">🏠</div>
-                    </div>
-                    <!-- Description -->
-                    <div class="p-8">
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Desain Interior Rumah</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Kami menghadirkan konsep desain interior rumah yang mencerminkan kepribadian dan gaya hidup Anda. Dengan pendekatan yang personal dan detail, setiap ruang di rumah Anda akan dirancang untuk memberikan kenyamanan maksimal dan estetika yang memukau.
-                        </p>
-                        <ul class="text-gray-500 space-y-2 text-sm">
-                            <li>✓ Konsultasi desain gratis</li>
-                            <li>✓ Desain custom sesuai kebutuhan</li>
-                            <li>✓ Pemilihan material berkualitas</li>
-                            <li>✓ Pengerjaan profesional & tepat waktu</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Service 2: Desain Interior Kantor -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-50 rounded-xl overflow-hidden service-card">
-                    <!-- Image -->
-                    <div class="relative h-64 md:h-80 overflow-hidden md:order-2">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" 
-                             alt="Desain Interior Kantor" 
-                             class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
-                        <div class="absolute top-4 right-4 text-5xl animate-float" style="animation-delay: 0.5s;">🏢</div>
-                    </div>
-                    <!-- Description -->
-                    <div class="p-8 md:order-1">
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Desain Interior Kantor</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Ciptakan lingkungan kerja yang produktif dan inspiratif dengan desain interior kantor modern dari kami. Kami memahami pentingnya ruang kerja yang ergonomis dan profesional untuk meningkatkan kinerja tim Anda. Desain yang fungsional dengan sentuhan estetika contemporary.
-                        </p>
-                        <ul class="text-gray-500 space-y-2 text-sm">
-                            <li>✓ Layout ruang kerja optimal</li>
-                            <li>✓ Desain ergonomis & produktif</li>
-                            <li>✓ Sistem pencahayaan profesional</li>
-                            <li>✓ Furniture kantor berkualitas</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Service 3: Renovasi & Visual 3D -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-50 rounded-xl overflow-hidden service-card">
-                    <!-- Image -->
-                    <div class="relative h-64 md:h-80 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop" 
-                             alt="Renovasi & Visual 3D" 
-                             class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
-                        <div class="absolute top-4 left-4 text-5xl animate-float" style="animation-delay: 1s;">🎨</div>
-                    </div>
-                    <!-- Description -->
-                    <div class="p-8">
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Renovasi & Visual 3D</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Lihat hasil akhir desain Anda sebelum proses renovasi dimulai dengan teknologi visualisasi 3D yang realistis. Kami menyediakan layanan renovasi total maupun parsial dengan detail yang presisi. Tidak ada kejutan, yang ada hanya kepuasan melihat ruang impian Anda terwujud.
-                        </p>
-                        <ul class="text-gray-500 space-y-2 text-sm">
-                            <li>✓ Visualisasi 3D photorealistic</li>
-                            <li>✓ Renovasi total & parsial</li>
-                            <li>✓ Revisi desain unlimited</li>
-                            <li>✓ Estimasi biaya transparan</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <!-- Service 4: Konsultasi Desain -->
-                <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-50 rounded-xl overflow-hidden service-card">
-                    <!-- Image -->
-                    <div class="relative h-64 md:h-80 overflow-hidden md:order-2">
-                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop" 
-                             alt="Konsultasi Desain" 
-                             class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
-                        <div class="absolute top-4 right-4 text-5xl animate-float" style="animation-delay: 1.5s;">💡</div>
-                    </div>
-                    <!-- Description -->
-                    <div class="p-8 md:order-1">
-                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Konsultasi Desain</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            Bingung memilih konsep desain yang tepat? Tim ahli kami siap membantu Anda dengan konsultasi desain profesional. Kami akan mendengarkan kebutuhan, budget, dan preferensi Anda untuk memberikan rekomendasi terbaik. Konsultasi awal gratis untuk semua klien baru.
-                        </p>
-                        <ul class="text-gray-500 space-y-2 text-sm">
-                            <li>✓ Konsultasi gratis untuk klien baru</li>
-                            <li>✓ Analisis kebutuhan ruang</li>
-                            <li>✓ Rekomendasi gaya & konsep</li>
-                            <li>✓ Perencanaan budget efektif</li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
+    <section
+      id="services"
+      class="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50 w-full"
+    >
+      <div class="w-full px-6">
+        <div class="mx-auto px-4 md:px-8">
+        <!-- Section Title -->
+        <div class="text-center mb-16">
+          <h2
+            id="services-title"
+            class="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+            style="opacity: 0"
+            data-i18n="services-title"
+          >
+            Layanan Kami
+          </h2>
+          <p
+            id="services-subtitle"
+            class="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto"
+            style="opacity: 0"
+            data-i18n="services-subtitle"
+          >
+            Layanan lengkap konstruksi, desain interior, dan produksi furnitur custom untuk proyek residensial &amp; komersial Anda.
+          </p>
+          <div
+            id="services-divider"
+            class="w-24 h-1 bg-gray-900 mx-auto mt-4"
+            style="opacity: 0"
+          ></div>
         </div>
+
+        <!-- A. General Construction -->
+        <div class="mb-16" style="opacity: 0" id="service-gc">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">A</div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900" data-i18n="service-gc-title">Konstruksi Umum</h3>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Structural Works -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 flex flex-col">
+              <div class="overflow-hidden" style="height:200px;">
+                <img src="img/proyek1.jpg" alt="Structural Works" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-6 flex-1">
+                <h4 class="text-lg font-bold text-gray-900 mb-3" data-i18n="sw-title">Pekerjaan Struktural</h4>
+                <ul class="text-gray-500 space-y-1 text-sm">
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="sw-1">Pondasi</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="sw-2">Beton bertulang</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="sw-3">Renovasi struktur</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Architectural Works -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 flex flex-col">
+              <div class="overflow-hidden" style="height:200px;">
+                <img src="img/rumah.jpg" alt="Architectural Works" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-6 flex-1">
+                <h4 class="text-lg font-bold text-gray-900 mb-3" data-i18n="aw-title">Pekerjaan Arsitektural</h4>
+                <ul class="text-gray-500 space-y-1 text-sm">
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="aw-1">Pekerjaan dinding &amp; finishing</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="aw-2">Plafon</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="aw-3">Lantai</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="aw-4">Fasad bangunan</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- MEP -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 flex flex-col">
+              <div class="overflow-hidden" style="height:200px;">
+                <img src="img/MEP.jpg" alt="MEP" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-6 flex-1">
+                <h4 class="text-lg font-bold text-gray-900 mb-3" data-i18n="mep-title">MEP</h4>
+                <p class="text-xs text-gray-400 mb-2 font-medium" data-i18n="mep-sub">Mekanikal, Elektrikal &amp; Plumbing</p>
+                <ul class="text-gray-500 space-y-1 text-sm">
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="mep-1">Instalasi listrik</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="mep-2">Plumbing &amp; sanitasi</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="mep-3">Sistem AC &amp; ventilasi</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="mep-4">Sistem air bersih &amp; kotor</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Landscape & Exterior -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 flex flex-col">
+              <div class="overflow-hidden" style="height:200px;">
+                <img src="img/hotel.jpeg" alt="Landscape & Exterior" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-6 flex-1">
+                <h4 class="text-lg font-bold text-gray-900 mb-3" data-i18n="le-title">Lanskap &amp; Eksterior</h4>
+                <ul class="text-gray-500 space-y-1 text-sm">
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="le-1">Hardscape &amp; softscape</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="le-2">Taman</span></li>
+                  <li class="flex items-start gap-2"><span class="text-gray-400 mt-0.5">•</span><span data-i18n="le-3">Area outdoor komersial</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-gray-200 mb-16"></div>
+
+        <!-- B. Interior & Custom Furniture -->
+        <div class="mb-16" style="opacity: 0" id="service-interior">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">B</div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900" data-i18n="service-interior-title">Interior &amp; Produksi Furnitur Custom</h3>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/kitchen.jpg" alt="Kitchen Set" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Kitchen Set</p></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/lemari.jpg" alt="Walk-in Closet" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Walk-in Closet</p></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/cabinet1.jpg" alt="Built-in Cabinet" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Built-in Cabinet</p></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/cafe.jpg" alt="Café & Retail Interior" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Café & Retail Interior</p></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/office.jpg" alt="Office Interior" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Office Interior</p></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+              <div class="h-28 overflow-hidden">
+                <img src="img/kamar1.jpeg" alt="Custom Furniture" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-3 text-center"><p class="text-sm font-semibold text-gray-800">Custom Furniture</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-gray-200 mb-16"></div>
+
+        <!-- Project Scope -->
+        <div class="mb-12" style="opacity: 0" id="service-scope">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-i18n="scope-title">Lingkup Proyek</h3>
+            <p class="text-gray-500 text-base" data-i18n="scope-subtitle">Jenis proyek yang kami tangani</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5">
+            <!-- Residential -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+              <div class="overflow-hidden mx-auto mt-6 rounded-xl" style="width:440px;height:440px;max-width:100%">
+                <img src="img/rumah.jpg" alt="Residential Projects" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-8 text-center">
+                <h4 class="text-xl font-bold text-gray-900 mb-4" data-i18n="residential-title">Proyek Residensial</h4>
+                <ul class="text-gray-500 text-lg space-y-3 inline-block text-left">
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="res-1">Rumah tinggal</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="res-2">Kos</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="res-3">Villa</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="res-4">Apartemen</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="res-5">Renovasi rumah</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- Commercial -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+              <div class="overflow-hidden mx-auto mt-6 rounded-xl" style="width:440px;height:440px;max-width:100%">
+                <img src="img/komersial.jpg" alt="Commercial Projects" class="w-full h-full object-cover hover:scale-105 transition-all duration-500" />
+              </div>
+              <div class="p-8 text-center">
+                <h4 class="text-xl font-bold text-gray-900 mb-4" data-i18n="commercial-title">Proyek Komersial</h4>
+                <ul class="text-gray-500 text-lg space-y-3 inline-block text-left">
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="com-1">Kafé &amp; Restoran</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="com-2">Toko Ritel</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="com-3">Kantor</span></li>
+                  <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><span data-i18n="com-4">Hospitality</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="w-full h-px bg-gray-200 mb-16"></div>
+
+        <!-- Value Proposition -->
+        <div style="opacity: 0" id="service-value">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2" data-i18n="value-title">Kenapa Memilih Kami?</h3>
+            <p class="text-gray-500" data-i18n="value-subtitle">Keunggulan yang membuat kami berbeda</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="bg-gray-900 text-white rounded-2xl p-6 text-center hover:bg-gray-800 transition-all duration-300">
+              <div class="text-4xl font-black text-amber-300 mb-2">9+</div>
+              <p class="text-sm font-semibold leading-tight" data-i18n="value-1">Tahun Pengalaman</p>
+            </div>
+            <div class="bg-gray-900 text-white rounded-2xl p-6 text-center hover:bg-gray-800 transition-all duration-300">
+              <div class="text-2xl font-bold text-amber-300 mb-2">∞</div>
+              <p class="text-sm font-semibold leading-tight" data-i18n="value-2">Sistem Konstruksi Terintegrasi</p>
+            </div>
+            <div class="bg-gray-900 text-white rounded-2xl p-6 text-center hover:bg-gray-800 transition-all duration-300">
+              <div class="text-2xl font-bold text-amber-300 mb-2">100%</div>
+              <p class="text-sm font-semibold leading-tight" data-i18n="value-3">Produksi Interior In-House</p>
+            </div>
+            <div class="bg-gray-900 text-white rounded-2xl p-6 text-center hover:bg-gray-800 transition-all duration-300">
+              <div class="text-2xl font-bold text-amber-300 mb-2">✓</div>
+              <p class="text-sm font-semibold leading-tight" data-i18n="value-4">Anggaran Transparan</p>
+            </div>
+            <div class="bg-gray-900 text-white rounded-2xl p-6 text-center hover:bg-gray-800 transition-all duration-300">
+              <div class="text-2xl font-bold text-amber-300 mb-2">✓</div>
+              <p class="text-sm font-semibold leading-tight" data-i18n="value-5">Pengiriman Proyek Tepat Waktu</p>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section
+      id="about"
+      class="relative w-full"
+      style="min-height: 700px;"
+    >
+      <!-- Background Image -->
+      <div
+        style="
+          position: absolute;
+          inset: 0;
+          background-image: url('img/proyek1.jpg');
+          background-size: cover;
+          background-position: center center;
+          z-index: 0;
+        "
+      ></div>
+      <!-- Dark Overlay -->
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,10,20,0.93) 0%,rgba(10,18,35,0.85) 50%,rgba(15,25,45,0.80) 100%);z-index:0;"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 w-full px-6 py-28 md:py-36">
+        <div class="mx-auto px-4 md:px-8 max-w-5xl text-center">
+
+          <!-- Label -->
+          <p id="about-label" class="text-amber-300 font-bold text-4xl md:text-5xl font-bold mb-6" style="opacity:0" data-i18n="about-label">Tentang Kami</p>
+
+          <!-- Main Title -->
+          <h2 id="about-title" class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 leading-tight" style="opacity:0" data-i18n-html="about-title">
+            Solusi Konstruksi <span class="text-amber-300">&amp; Interior</span> Terintegrasi di Bali
+          </h2>
+
+          <!-- Divider -->
+          <div id="about-divider" class="w-24 h-1 bg-amber-300 mx-auto mb-10" style="opacity:0"></div>
+
+          <!-- Description -->
+          <div id="about-content" style="opacity:0">
+            <p class="text-gray-200 leading-relaxed text-lg md:text-xl mb-4 max-w-3xl mx-auto" data-i18n="about-p1">
+              Elditi Projects adalah perusahaan konstruksi dan interior yang berbasis di Bali, berpengalaman lebih dari 9 tahun dalam menangani proyek residensial dan komersial.
+            </p>
+            <p class="text-gray-400 leading-relaxed text-lg md:text-xl max-w-3xl mx-auto mb-16" data-i18n="about-p2">
+              Kami mengerjakan proyek secara terintegrasi, meliputi pekerjaan struktural, arsitektural, MEP, landscape, hingga produksi interior dan mebel custom dengan standar presisi tinggi.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 md:gap-12 max-w-2xl mx-auto">
+              <div class="text-center">
+                <div class="text-3xl md:text-4xl font-black text-amber-300 mb-2">9+</div>
+                <div class="w-8 h-px bg-amber-300/40 mx-auto mb-2"></div>
+                <p class="text-gray-300 text-xs font-medium tracking-widest uppercase" data-i18n="about-stat1">Tahun<br>Berpengalaman</p>
+              </div>
+              <div class="text-center relative">
+                <div class="absolute left-0 top-1/4 h-1/2 w-px bg-white/15 hidden md:block"></div>
+                <div class="absolute right-0 top-1/4 h-1/2 w-px bg-white/15 hidden md:block"></div>
+                <div class="text-3xl md:text-4xl font-black text-amber-300 mb-2">200+</div>
+                <div class="w-8 h-px bg-amber-300/40 mx-auto mb-2"></div>
+                <p class="text-gray-300 text-xs font-medium tracking-widest uppercase" data-i18n="about-stat2">Proyek<br>Selesai</p>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl md:text-4xl font-black text-amber-300 mb-2">100%</div>
+                <div class="w-8 h-px bg-amber-300/40 mx-auto mb-2"></div>
+                <p class="text-gray-300 text-xs font-medium tracking-widest uppercase" data-i18n="about-stat3">Klien<br>Puas</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- ========== GALLERY SECTION ========== -->
-    <section id="gallery" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            
-            <!-- Section Title -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-down">Portfolio Kami</h2>
-                <p class="text-gray-600 text-lg md:text-xl animate-fade-in-down" style="animation-delay: 0.1s;">Lihat hasil karya terbaik kami</p>
-                <div class="w-24 h-1 bg-gray-900 mx-auto mt-4 animate-fade-in-down" style="animation-delay: 0.2s;"></div>
-            </div>
-            
-            <!-- Gallery Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="left">
-                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=600&h=400&fit=crop" 
-                         alt="Modern Living Room" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Modern Living Room</span>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="right">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" 
-                         alt="Minimalist Bedroom" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Minimalist Bedroom</span>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="left">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" 
-                         alt="Contemporary Kitchen" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Contemporary Kitchen</span>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="right">
-                    <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=600&h=400&fit=crop" 
-                         alt="Modern Office Space" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Modern Office Space</span>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 5 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="left">
-                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&h=400&fit=crop" 
-                         alt="Elegant Dining Room" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Elegant Dining Room</span>
-                    </div>
-                </div>
-                
-                <!-- Gallery Item 6 -->
-                <div class="gallery-item rounded-lg h-64 bg-white shadow-lg" data-direction="right">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&h=400&fit=crop" 
-                         alt="Luxury Bathroom" 
-                         class="w-full h-full object-cover rounded-lg">
-                    <div class="gallery-overlay rounded-lg">
-                        <span class="text-xl">✨ Luxury Bathroom</span>
-                    </div>
-                </div>
-                
-            </div>
+    <section
+      id="gallery"
+      class="py-20 bg-gradient-to-br from-slate-100 via-gray-100 to-slate-200 w-full"
+    >
+      <div class="w-full px-6">
+        <div class="mx-auto px-4 md:px-8">
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-down"
+            data-i18n="gallery-title"
+          >
+            Portfolio Kami
+          </h2>
+          <p
+            class="text-gray-600 text-lg md:text-xl animate-fade-in-down"
+            style="animation-delay: 0.1s"
+            data-i18n="gallery-subtitle"
+          >
+            Lihat hasil karya terbaik kami
+          </p>
+          <div
+            class="w-24 h-1 bg-gray-900 mx-auto mt-4 animate-fade-in-down"
+            style="animation-delay: 0.2s"
+          ></div>
         </div>
+
+        <!-- Category Tabs -->
+        <div class="flex justify-center mb-12 space-x-4">
+          <button
+            class="gallery-tab active px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300"
+            data-category="interior"
+            data-i18n="gallery-tab-interior"
+          >
+            Desain Interior
+          </button>
+          <button
+            class="gallery-tab px-8 py-3 rounded-lg font-bold text-lg transition-all duration-300"
+            data-category="konstruksi"
+            data-i18n="gallery-tab-konstruksi"
+          >
+            Konstruksi
+          </button>
+        </div>
+
+        <!-- Gallery Grid - Desain Interior -->
+        <div id="gallery-interior" class="gallery-content">
+          <div class="columns-2 sm:columns-3 md:columns-4 [column-gap:3px]">
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/interior/porto1.jpg" alt="Kamar Tidur" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-1">Kamar tidur modern dengan desain minimalis dan pencahayaan natural</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/dapur1.jpg" alt="Dapur" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-2">Dapur modern dengan kitchen set custom berkualitas tinggi</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kitchen.jpg" alt="Kitchen Set" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-3">Kitchen set built-in dengan material premium dan finishing rapi</p></div>
+              </div>
+            </div>
+             <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/office.jpg" alt="Office" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-9">Interior dan konstruksi ruang kantor modern dengan desain ergonomis</p></div>
+              </div>
+            </div>
+           
+            
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/gambar2.jpg" alt="Interior" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-6">Interior ruang dengan pencahayaan ambient yang hangat dan nyaman</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/interior/keluarga1.jpg" alt="Ruang Keluarga" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-7">Ruang keluarga luas dengan penataan furnitur fungsional dan estetis</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/interior/kabinet.jpg" alt="Cabinet" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-8">Built-in cabinet custom dengan desain minimalis dan storage optimal</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/lemari.jpg" alt="Walk-in Closet" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-9">Walk-in closet dengan sistem penyimpanan terorganisir dan rapi</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Grid - Konstruksi -->
+        <div id="gallery-konstruksi" class="gallery-content hidden">
+          <div class="columns-2 sm:columns-3 md:columns-4 [column-gap:3px]">
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/proyek2.jpg" alt="Proyek Konstruksi" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-1">Proyek konstruksi bangunan dengan struktur kokoh dan presisi tinggi</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/gedung1.jpeg" alt="Gedung" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-2">Konstruksi gedung komersial dengan standar kualitas internasional</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/gedung2.jpeg" alt="Bangunan Komersial" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-3">Pembangunan gedung komersial skala besar dengan teknologi konstruksi modern</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/gedung3.jpg" alt="Proyek Gedung" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-4">Proyek renovasi dan pembangunan gedung dengan hasil terbaik</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/hotel.jpeg" alt="Hotel" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-5">Konstruksi hotel dengan finishing premium dan detail arsitektur halus</p></div>
+              </div>
+            </div>
+            
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/rumah.jpg" alt="Rumah Tinggal" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-6">Pembangunan rumah tinggal dengan desain modern dan struktural kuat</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/proyek1.jpg" alt="Proyek" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-7">Proyek konstruksi terintegrasi dari pondasi hingga finishing eksterior</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/MEP.jpg" alt="MEP" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-8">Sistem MEP — mekanikal, elektrikal, dan plumbing standar engineering</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/gambar4.jpeg" alt="Ruang Santai" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gi-4">Ruang santai elegan dengan furnitur custom dan konsep terbuka</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi1.jpeg" alt="Villa Pool Outdoor Lounge" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-10">Rendering villa mewah dengan infinity pool, outdoor lounge dan taman tropis</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi2.jpeg" alt="Rendering Rumah 2 Lantai Malam" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-11">Rendering rumah 2 lantai modern saat malam dengan kolam kecil dan taman depan elegan</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi3.jpeg" alt="TV Wall Marble Premium" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-12">TV wall dengan backdrop marble coklat premium, cabinet abu-abu gold dan lemari display mewah</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi4.jpeg" alt="Rumah 2 Lantai Desain Modern" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-13">Desain rumah 2 lantai modern dengan balkon, material berkualitas dan taman depan</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi5.jpeg" alt="TV Wall Marble" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-14">TV wall dengan backdrop marble premium, cabinet modern dan sistem pencahayaan</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi6.jpeg" alt="Kamar Backdrop Kayu Ambient" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-15">Kamar tidur dengan headboard backdrop kayu dan ambient lighting kuning hangat</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi7.jpeg" alt="Pekerja Panel Gypsum Interior" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-16">Tim pekerja memasang panel gypsum dinding dan material interior dengan presisi</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi8.jpeg" alt="Pemasangan Panel Kayu Cafe" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-17">Proses pemasangan panel kayu dan dekorasi kolom bulat pada interior cafe komersial</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi9.jpeg" alt="Pemasangan Panel Dinding Track Light" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-18">Pemasangan panel dinding interior dengan sistem track lighting modern terintegrasi</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi10.jpeg" alt="Interior Wallpaper Tropical" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-19">Interior komersial dengan wallpaper mural tropical dan counter marmer dalam progres</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi11.jpeg" alt="Interior Konstruksi Tangga Pool" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-20">Interior rumah tahap konstruksi dengan tangga beton, plafon dan area kolam renang</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi12.jpeg" alt="Struktur Bata Rumah 2 Lantai" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-21">Struktur bata rumah 2 lantai dengan genteng hitam siap pasang dan scaffolding</p></div>
+              </div>
+            </div>
+            <div class="gallery-item relative group cursor-pointer overflow-hidden" style="break-inside: avoid; margin: 0 0 3px 0; padding: 0;">
+              <img src="img/kontruksi13.jpeg" alt="MEP Ceiling Ducting Gedung" class="w-full h-auto block" />
+              <div class="gallery-overlay">
+                <div class="text-center px-3"><p class="text-sm leading-relaxed" data-i18n="gk-22">Sistem MEP ceiling gedung komersial dengan ducting AC, pipa, dan instalasi elektrikal</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
     </section>
 
     <!-- ========== CONTACT SECTION ========== -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            
-            <!-- Section Title -->
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 animate-fade-in-down">Hubungi Kami</h2>
-                <p class="text-gray-600 text-lg md:text-xl animate-fade-in-down" style="animation-delay: 0.1s;">Siap mewujudkan desain interior impian Anda</p>
-                <div class="w-24 h-1 bg-gray-900 mx-auto mt-4 animate-fade-in-down" style="animation-delay: 0.2s;"></div>
-            </div>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    
-                    <!-- Contact Info -->
-                    <div class="bg-gray-50 border-2 border-gray-200 p-8 rounded-lg">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Interiora Design Studio</h3>
-                        
-                        <div class="space-y-6">
-                            <!-- WhatsApp -->
-                            <div class="flex items-start transform hover:translate-x-2 transition-all">
-                                <div class="text-3xl mr-4">📱</div>
-                                <div>
-                                    <p class="font-semibold text-gray-900 mb-1">WhatsApp</p>
-                                    <p class="text-gray-600">+62 812-3456-7890</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Email -->
-                            <div class="flex items-start transform hover:translate-x-2 transition-all">
-                                <div class="text-3xl mr-4">📧</div>
-                                <div>
-                                    <p class="font-semibold text-gray-900 mb-1">Email</p>
-                                    <p class="text-gray-600">info@interioradesign.com</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Alamat -->
-                            <div class="flex items-start transform hover:translate-x-2 transition-all">
-                                <div class="text-3xl mr-4">📍</div>
-                                <div>
-                                    <p class="font-semibold text-gray-900 mb-1">Alamat</p>
-                                    <p class="text-gray-600">
-                                        Jl. Sudirman No. 123<br>
-                                        Jakarta Selatan 12190<br>
-                                        Indonesia
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- WhatsApp CTA -->
-                    <div class="bg-gray-900 p-8 rounded-lg flex flex-col justify-center shadow-2xl transform hover:scale-105 transition-all">
-                        <h4 class="text-2xl font-bold text-white mb-4">
-                            💡 Konsultasi Gratis
-                        </h4>
-                        <p class="text-gray-300 mb-6 leading-relaxed">
-                            Hubungi kami melalui WhatsApp untuk konsultasi gratis dan dapatkan penawaran terbaik untuk proyek desain interior Anda.
-                        </p>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Interiora%20Design,%20saya%20tertarik%20untuk%20konsultasi%20desain%20interior" 
-                           target="_blank"
-                           class="inline-block bg-white text-gray-900 px-6 py-4 rounded-lg font-bold hover:bg-gray-100 transition-all text-center transform hover:scale-105">
-                            💬 Chat via WhatsApp Sekarang
-                        </a>
-                    </div>
-                    
-                </div>
-            </div>
+    <section id="contact" class="py-20 bg-white w-full">
+      <div class="w-full px-6">
+        <div class="mx-auto px-4 md:px-8">
+      <!-- Section Title -->
+      <div class="text-center">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="contact-title">
+        Hubungi Kami Sekarang
+        </h2>
+        <p class="text-gray-600 text-lg md:text-xl" data-i18n="contact-subtitle">
+        Siap mewujudkan desain interior impian Anda dengan solusi profesional dan terpercaya
+        </p>
+        <div
+            class="w-24 h-1 bg-gray-900 mx-auto mt-4 animate-fade-in-down"
+            style="animation-delay: 0.2s"
+          ></div>
         </div>
+      </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer class="bg-gray-900 py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-white font-bold text-lg">&copy; 2026 Interiora Design. All Rights Reserved.</p>
-            <p class="text-gray-400 text-sm mt-2">Jasa Desain Interior Profesional - Jakarta, Indonesia</p>
+    <!-- ========== OFFICE LOCATION & CONTACT INFO ========== -->
+   <section class="py-4 w-full">
+    <div class="w-full px-8">
+      <div class="mx-auto px-4 md:px-8">
+
+        <!-- Grid 1:2 -->
+        <div class="grid md:grid-cols-3 w-11/12 mx-auto">
+          
+          <!-- Contact Information (1 bagian) -->
+          <div class="md:col-span-1">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8" data-i18n="contact-info-title">Informasi Kontak</h2>
+            
+            <div class="grid gap-8">
+              
+              <!-- Phone -->
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="phone-label">Nomor Telepon</h3>
+                <a href="tel:+6287855593223" class="text-blue-600 hover:text-blue-700 text-lg font-semibold">
+                  (+62) 878-5559-3223
+                </a>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="email-label">Alamat Email</h3>
+                <a href="mailto:ldtinteriorindo@gmail.com" class="text-blue-600 hover:text-blue-700 text-lg font-semibold break-all">
+                  ldtinteriorindo@gmail.com
+                </a>
+              </div>
+
+              <!-- Address -->
+              <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="address-label">Kantor Kami</h3>
+                <p class="text-gray-700 font-semibold text-base">
+                  Elditi Kreativa Nusantara<br />
+                 Jln. Tukad Yeh Aye IX, Renon<br />
+                  Denpasar, Bali, Indonesia
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Google Maps (2 bagian) -->
+          <div class="md:col-span-2 mt-8 md:mt-0">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8" data-i18n="maps-title">Lokasi Kami</h2>
+            <div class="rounded-lg overflow-hidden border-2 border-gray-300 h-96 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.090347236431!2d115.23617926857905!3d-8.682958269309205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd24054f548ae4b%3A0xd447f051d6cce03a!2sJl.%20Tukad%20Yeh%20Aya%20IX%2C%20Renon%2C%20Denpasar%20Selatan%2C%20Kota%20Denpasar%2C%20Bali!5e0!3m2!1sen!2sid!4v1771924038006!5m2!1sen!2sid"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="mt-16">
+        <div class="mx-auto px-4 md:px-8">
+          <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-12 text-center text-white shadow-xl">
+            <h3 class="text-3xl font-bold mb-4" data-i18n="cta-title">Konsultasi Desain Interior Gratis</h3>
+            <p class="text-gray-300 text-lg mb-8" data-i18n="cta-desc">
+              Dapatkan saran profesional dari tim arsitek dan desainer berpengalaman kami tanpa biaya.
+            </p>
+            <a
+              href="https://wa.me/6287855593223?text=Halo%20Elditi%20Kreativa%20Nusantara,%20saya%20tertarik%20untuk%20konsultasi%20desain%20interior"
+              target="_blank"
+              class="inline-block bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-lg font-bold text-lg transition duration-300 shadow-lg hover:shadow-xl"
+              data-i18n="cta-btn"
+            >
+              Mulai Konsultasi Gratis
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-2 border-gray-800 w-full">
+      <div class="w-full px-6">
+        <div class="mx-auto px-4 md:px-12">
+      <div class="grid md:grid-cols-4 gap-8 mb-8 w-full">
+        <!-- Company Info -->
+        <div>
+        <h4 class="text-white font-bold text-lg mb-4">Elditi Kreativa Nusantara</h4>
+        <p class="text-gray-400 text-sm" data-i18n="footer-about">
+          Perusahaan konstruksi dan interior yang berbasis di Bali, berpengalaman lebih dari 9 tahun dalam menangani proyek residensial dan komersial.
+        </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+        <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer-menu">Menu</h4>
+        <ul class="text-gray-400 text-sm space-y-2">
+          <li><a href="#home" class="hover:text-white transition" data-i18n="footer-home">Beranda</a></li>
+          <li><a href="#services" class="hover:text-white transition" data-i18n="footer-services">Layanan</a></li>
+          <li><a href="#about" class="hover:text-white transition" data-i18n="footer-about-link">Tentang Kami</a></li>
+          <li><a href="#gallery" class="hover:text-white transition" data-i18n="footer-gallery">Portfolio</a></li>
+          <li><a href="#contact" class="hover:text-white transition" data-i18n="footer-contact">Kontak</a></li>
+        </ul>
+        </div>
+
+        <!-- Social Media -->
+        <div>
+          <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer-social">Media Sosial</h4>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-4">
+
+            
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/elditiprojects" target="_blank" class="bg-gray-800 hover:bg-pink-600 p-3 rounded-full transition duration-300">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.5A4.5 4.5 0 1112 17a4.5 4.5 0 010-9zm6-1.8a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6287855593223" target="_blank" class="bg-gray-800 hover:bg-green-600 p-3 rounded-full transition duration-300">
+              <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 3.5A11 11 0 005.6 19.1L4 23l4-1.5A11 11 0 1020 3.5zM12 20a8 8 0 01-4.3-1.3l-.3-.2-2.4.9.8-2.3-.2-.3A8 8 0 1112 20zm4.2-5.7c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1-.6-.5-1-1.2-1.1-1.4-.1-.2 0-.3.1-.5.1-.1.2-.3.3-.4.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.3-.3-.5-.3h-.4c-.1 0-.4 0-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.5 2.3 3.7 3.2.5.2.9.3 1.2.4.5.1.9.1 1.3.1.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/>
+              </svg>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Follow Us -->
+        <div>
+        <h4 class="text-white font-bold text-lg mb-4" data-i18n="footer-contact-title">Hubungi Kami</h4>
+        <p class="text-gray-400 text-sm mb-4" data-i18n="footer-contact-desc">
+          Hubungi tim kami melalui berbagai saluran komunikasi yang tersedia.
+        </p>
+        <a href="https://wa.me/6287855593223" class="inline-block bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded text-sm font-semibold transition">
+          WhatsApp
+        </a>
+        </div>
+      </div>
+
+      <!-- Bottom Footer -->
+      <div class="border-t border-gray-800 pt-8">
+        <div class="text-center text-gray-400 text-sm">
+        <p class="mb-2" data-i18n="footer-copyright">
+          &copy; 2024 Elditi Kreativa Nusantara. Semua Hak Dilindungi.
+        </p>
+        <p data-i18n="footer-tagline">
+          Jasa Desain Interior dan Konstruksi Profesional - Bali, Indonesia
+        </p>
+        </div>
+      </div>
+        </div>
+      </div>
     </footer>
 
     <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // Typing Effect - No need to remove animation, it loops
-        
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+      // Navbar Blur on Scroll
+      const navbar = document.querySelector("nav");
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      }, { passive: true });
+
+      // Active Link Highlighting
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const navbarHeight = navbar.offsetHeight + 20;
+
+      window.addEventListener("scroll", () => {
+        let current = "home";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - navbarHeight - 40;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
         });
-        
-        // Close mobile menu when clicking a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
         });
-        
-        // Smooth scroll for all anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+      }, { passive: true });
+
+      // Interactive Blur Cursor Effect
+      const heroSection = document.getElementById("home");
+      const blurCursor = document.getElementById("blur-cursor");
+
+      if (heroSection && blurCursor) {
+        heroSection.addEventListener("mousemove", (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          blurCursor.style.left = x + "px";
+          blurCursor.style.top = y + "px";
+          blurCursor.style.opacity = "1";
         });
-        
-        // Scroll Animation Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) translateX(0) scale(1)';
-                }
+
+        heroSection.addEventListener("mouseleave", () => {
+          blurCursor.style.opacity = "0";
+        });
+
+        heroSection.addEventListener("mouseenter", () => {
+          blurCursor.style.opacity = "1";
+        });
+      }
+
+      // Hero Section Scroll Animation - Smooth real-time
+      const heroTitle = document.getElementById("hero-title");
+      const heroDescription = document.getElementById("hero-description");
+      const heroCta = document.getElementById("hero-cta");
+
+      // Tunggu animasi entrance selesai (1.2s + delays), baru aktifkan scroll animation
+      setTimeout(() => {
+        // Hapus semua class animasi CSS
+        heroTitle.classList.remove(
+          "animate-slide-in-left",
+          "animate-slide-out-left",
+        );
+        heroDescription.classList.remove(
+          "animate-slide-in-right",
+          "animate-slide-out-right",
+        );
+        heroCta.classList.remove(
+          "animate-slide-in-top",
+          "animate-slide-out-top",
+        );
+
+        // Reset ke posisi normal dengan opacity penuh
+        heroTitle.style.opacity = "1";
+        heroDescription.style.opacity = "1";
+        heroCta.style.opacity = "1";
+        heroTitle.style.transform = "translateX(0)";
+        heroDescription.style.transform = "translateX(0)";
+        heroCta.style.transform = "translateY(0)";
+
+        // Set transition untuk smooth movement
+        heroTitle.style.transition =
+          "transform 0.3s ease-out, opacity 0.3s ease-out";
+        heroDescription.style.transition =
+          "transform 0.3s ease-out, opacity 0.3s ease-out";
+        heroCta.style.transition =
+          "transform 0.3s ease-out, opacity 0.3s ease-out";
+
+        // Aktifkan scroll listener
+        window.addEventListener("scroll", handleScroll);
+
+        // Jalankan sekali untuk handle jika sudah di-scroll
+        handleScroll();
+      }, 2800); // 1.2s animasi + 1.6s delay terlama
+
+      function handleScroll() {
+        const scrollY = window.scrollY;
+
+        // Tombol Konsultasi - keluar pertama (mulai di 0px)
+        const ctaOffset = Math.min(scrollY * 0.5, 100);
+        const ctaOpacity = Math.max(1 - scrollY / 150, 0);
+        heroCta.style.transform = `translateY(-${ctaOffset}px)`;
+        heroCta.style.opacity = ctaOpacity;
+
+        // Deskripsi - keluar kedua (dengan delay)
+        const descOffset = Math.max(0, (scrollY - 50) * 0.6);
+        const descOpacity = Math.max(1 - (scrollY - 50) / 200, 0);
+        heroDescription.style.transform = `translateX(${descOffset}px)`;
+        heroDescription.style.opacity = descOpacity;
+
+        // Judul - keluar terakhir
+        const titleOffset = Math.max(0, (scrollY - 100) * 0.6);
+        const titleOpacity = Math.max(1 - (scrollY - 100) / 200, 0);
+        heroTitle.style.transform = `translateX(-${titleOffset}px)`;
+        heroTitle.style.opacity = titleOpacity;
+      }
+
+      // Mobile Menu Toggle with Smooth Animation
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("show");
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll(".mobile-link");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("show");
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target) &&
+          mobileMenu.classList.contains("show")
+        ) {
+          mobileMenu.classList.remove("show");
+        }
+      });
+
+      // Smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
             });
-        }, observerOptions);
-        
-        // Observe gallery items - entrance + continuous animation
-        const galleryObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                const direction = entry.target.getAttribute('data-direction');
-                
-                if (entry.isIntersecting) {
-                    // Fade in and slide to center
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateX(0)';
-                    
-                    // After entrance animation, start continuous movement
-                    setTimeout(() => {
-                        if (direction === 'left') {
-                            entry.target.classList.add('animate-slide-continuous-left');
-                        } else {
-                            entry.target.classList.add('animate-slide-continuous-right');
-                        }
-                    }, 800); // Wait for entrance to finish
+          }
+        });
+      });
+
+      // Scroll Animation Observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform =
+              "translateY(0) translateX(0) scale(1)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe gallery items - entrance + continuous animation
+      const galleryObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const direction = entry.target.getAttribute("data-direction");
+
+            if (entry.isIntersecting) {
+              // Fade in and slide to center
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateX(0)";
+
+              // After entrance animation, start continuous movement
+              setTimeout(() => {
+                if (direction === "left") {
+                  entry.target.classList.add("animate-slide-continuous-left");
                 } else {
-                    // Keep animation running even when out of view (optional)
-                    // Remove these lines if you want animation to stop when scrolled away
+                  entry.target.classList.add("animate-slide-continuous-right");
                 }
-            });
-        }, {
-            threshold: 0.2,
-            rootMargin: '0px'
-        });
-        
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            const direction = item.getAttribute('data-direction');
-            
-            item.style.opacity = '0';
-            if (direction === 'left') {
-                item.style.transform = 'translateX(-100px)';
+              }, 800); // Wait for entrance to finish
             } else {
-                item.style.transform = 'translateX(100px)';
+              // Keep animation running even when out of view (optional)
+              // Remove these lines if you want animation to stop when scrolled away
             }
-            item.style.transition = `opacity 0.8s ease ${index * 0.15}s, transform 0.8s ease ${index * 0.15}s`;
-            
-            galleryObserver.observe(item);
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: "0px",
+        },
+      );
+
+      document.querySelectorAll(".gallery-item").forEach((item, index) => {
+        const direction = item.getAttribute("data-direction");
+
+        item.style.opacity = "0";
+        if (direction === "left") {
+          item.style.transform = "translateX(-100px)";
+        } else {
+          item.style.transform = "translateX(100px)";
+        }
+        item.style.transition = `opacity 0.8s ease ${index * 0.15}s, transform 0.8s ease ${index * 0.15}s`;
+
+        galleryObserver.observe(item);
+      });
+
+      // ===== SERVICES SECTION ONE-TIME ANIMATIONS =====
+      const servicesSection = document.getElementById("services");
+      const servicesTitle = document.getElementById("services-title");
+      const servicesSubtitle = document.getElementById("services-subtitle");
+      const servicesDivider = document.getElementById("services-divider");
+      const serviceBlocks = ["service-gc", "service-interior", "service-scope", "service-value"];
+
+      // Set initial state
+      [servicesTitle, servicesSubtitle, servicesDivider].forEach((el, i) => {
+        if (!el) return;
+        el.style.opacity = "0";
+        el.style.transform = i === 0 ? "translateY(-40px)" : "translateY(40px)";
+        el.style.transition = `opacity 1.2s ease ${i * 0.15}s, transform 1.2s ease ${i * 0.15}s`;
+      });
+      serviceBlocks.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.style.opacity = "0";
+        el.style.transform = "translateY(50px)";
+        el.style.transition = "opacity 0.9s ease, transform 0.9s ease";
+      });
+
+      let servicesAnimationTriggered = false;
+
+      const servicesObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !servicesAnimationTriggered) {
+              servicesAnimationTriggered = true;
+
+              // Trigger header
+              [servicesTitle, servicesSubtitle, servicesDivider].forEach((el) => {
+                if (!el) return;
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+              });
+
+              // Trigger blocks dengan delay bertahap
+              serviceBlocks.forEach((id, i) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                setTimeout(() => {
+                  el.style.opacity = "1";
+                  el.style.transform = "translateY(0)";
+                }, 400 + i * 250);
+              });
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
+      );
+
+      servicesObserver.observe(servicesSection);
+
+      // ===== ABOUT SECTION ANIMATION =====
+      const aboutSection = document.getElementById("about");
+      const aboutLabel = document.getElementById("about-label");
+      const aboutTitle = document.getElementById("about-title");
+      const aboutDivider = document.getElementById("about-divider");
+      const aboutContent = document.getElementById("about-content");
+
+      if (aboutSection && aboutTitle) {
+        aboutLabel.style.transform = "translateY(20px)";
+        aboutLabel.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+        aboutTitle.style.transform = "translateY(30px)";
+        aboutTitle.style.transition = "opacity 0.9s ease 0.15s, transform 0.9s ease 0.15s";
+        aboutDivider.style.transition = "opacity 0.8s ease 0.3s";
+        aboutContent.style.transform = "translateY(30px)";
+        aboutContent.style.transition = "opacity 1s ease 0.4s, transform 1s ease 0.4s";
+
+        let aboutTriggered = false;
+        const aboutObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !aboutTriggered) {
+              aboutTriggered = true;
+              aboutLabel.style.opacity = "1";
+              aboutLabel.style.transform = "translateY(0)";
+              aboutTitle.style.opacity = "1";
+              aboutTitle.style.transform = "translateY(0)";
+              aboutDivider.style.opacity = "1";
+              aboutContent.style.opacity = "1";
+              aboutContent.style.transform = "translateY(0)";
+            }
+          });
+        }, { threshold: 0.15 });
+        aboutObserver.observe(aboutSection);
+      }
+
+      // ===== GALLERY TAB SWITCHING =====
+      const galleryTabs = document.querySelectorAll(".gallery-tab");
+      const galleryContents = {
+        interior: document.getElementById("gallery-interior"),
+        konstruksi: document.getElementById("gallery-konstruksi"),
+      };
+
+      galleryTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const category = tab.getAttribute("data-category");
+
+          // Remove active class from all tabs
+          galleryTabs.forEach((t) => t.classList.remove("active"));
+
+          // Add active class to clicked tab
+          tab.classList.add("active");
+
+          // Hide all gallery contents
+          Object.values(galleryContents).forEach((content) => {
+            if (content) content.classList.add("hidden");
+          });
+
+          // Show selected gallery content
+          if (galleryContents[category]) {
+            galleryContents[category].classList.remove("hidden");
+          }
         });
+      });
     </script>
 
-</body>
+    <!-- ========== LANGUAGE TRANSLATION SYSTEM ========== -->
+    <script>
+      const translations = {
+        id: {
+          'nav-home': 'Beranda',
+          'nav-services': 'Layanan',
+          'nav-about': 'Tentang',
+          'nav-gallery': 'Galeri',
+          'nav-contact': 'Kontak',
+          'hero-title': 'General Contractor Konstruksi & Interior',
+          'hero-description': 'Setiap detail menentukan keindahan dan kekuatan sebuah bangunan. Dengan perpaduan jasa konstruksi presisi dan sentuhan desain interior eksklusif, kami hadirkan ruang terbaik untuk Anda.',
+          'hero-cta': 'Konsultasi Gratis',
+          'services-title': 'Layanan Kami',
+          'services-subtitle': 'Layanan lengkap konstruksi, desain interior, dan produksi furnitur custom untuk proyek residensial & komersial Anda.',
+          'service-gc-title': 'Konstruksi Umum',
+          'sw-title': 'Pekerjaan Struktural',
+          'sw-1': 'Pondasi',
+          'sw-2': 'Beton bertulang',
+          'sw-3': 'Renovasi struktur',
+          'aw-title': 'Pekerjaan Arsitektural',
+          'aw-1': 'Pekerjaan dinding & finishing',
+          'aw-2': 'Plafon',
+          'aw-3': 'Lantai',
+          'aw-4': 'Fasad bangunan',
+          'mep-title': 'MEP',
+          'mep-sub': 'Mekanikal, Elektrikal & Plumbing',
+          'mep-1': 'Instalasi listrik',
+          'mep-2': 'Plumbing & sanitasi',
+          'mep-3': 'Sistem AC & ventilasi',
+          'mep-4': 'Sistem air bersih & kotor',
+          'le-title': 'Lanskap & Eksterior',
+          'le-1': 'Hardscape & softscape',
+          'le-2': 'Taman',
+          'le-3': 'Area outdoor komersial',
+          'service-interior-title': 'Interior & Produksi Furnitur Custom',
+          'scope-title': 'Lingkup Proyek',
+          'scope-subtitle': 'Jenis proyek yang kami tangani',
+          'residential-title': 'Proyek Residensial',
+          'res-1': 'Rumah tinggal',
+          'res-2': 'Kos',
+          'res-3': 'Villa',
+          'res-4': 'Apartemen',
+          'res-5': 'Renovasi rumah',
+          'commercial-title': 'Proyek Komersial',
+          'com-1': 'Kafé & Restoran',
+          'com-2': 'Toko Ritel',
+          'com-3': 'Kantor',
+          'com-4': 'Hospitality',
+          'value-title': 'Kenapa Memilih Kami?',
+          'value-subtitle': 'Keunggulan yang membuat kami berbeda',
+          'value-1': 'Tahun Pengalaman',
+          'value-2': 'Sistem Konstruksi Terintegrasi',
+          'value-3': 'Produksi Interior In-House',
+          'value-4': 'Anggaran Transparan',
+          'value-5': 'Pengiriman Proyek Tepat Waktu',
+          'about-label': 'Tentang Kami',
+          'about-title': 'Solusi Konstruksi <span class="text-amber-300">&amp; Interior</span> Terintegrasi di Bali',
+          'about-p1': 'Elditi Projects adalah perusahaan konstruksi dan interior yang berbasis di Bali, berpengalaman lebih dari 9 tahun dalam menangani proyek residensial dan komersial.',
+          'about-p2': 'Kami mengerjakan proyek secara terintegrasi, meliputi pekerjaan struktural, arsitektural, MEP, landscape, hingga produksi interior dan mebel custom dengan standar presisi tinggi.',
+          'about-stat1': 'Tahun<br>Berpengalaman',
+          'about-stat2': 'Proyek<br>Selesai',
+          'about-stat3': 'Klien<br>Puas',
+          'gallery-title': 'Portfolio Kami',
+          'gallery-subtitle': 'Lihat hasil karya terbaik kami',
+          'gallery-tab-interior': 'Desain Interior',
+          'gallery-tab-konstruksi': 'Konstruksi',
+          'contact-title': 'Hubungi Kami Sekarang',
+          'contact-subtitle': 'Siap mewujudkan desain interior impian Anda dengan solusi profesional dan terpercaya',
+          'contact-info-title': 'Informasi Kontak',
+          'phone-label': 'Nomor Telepon',
+          'email-label': 'Alamat Email',
+          'address-label': 'Kantor Kami',
+          'maps-title': 'Lokasi Kami',
+          'cta-title': 'Konsultasi Desain Interior Gratis',
+          'cta-desc': 'Dapatkan saran profesional dari tim arsitek dan desainer berpengalaman kami tanpa biaya.',
+          'cta-btn': 'Mulai Konsultasi Gratis',
+          'footer-about': 'Perusahaan konstruksi dan interior yang berbasis di Bali, berpengalaman lebih dari 9 tahun dalam menangani proyek residensial dan komersial.',
+          'footer-menu': 'Menu',
+          'footer-home': 'Beranda',
+          'footer-services': 'Layanan',
+          'footer-about-link': 'Tentang Kami',
+          'footer-gallery': 'Portfolio',
+          'footer-contact': 'Kontak',
+          'footer-social': 'Media Sosial',
+          'footer-contact-title': 'Hubungi Kami',
+          'footer-contact-desc': 'Hubungi tim kami melalui berbagai saluran komunikasi yang tersedia.',
+          'footer-copyright': '© 2024 Elditi Kreativa Nusantara. Semua Hak Dilindungi.',
+          'footer-tagline': 'Jasa Desain Interior dan Konstruksi Profesional - Bali, Indonesia',
+          // Gallery Interior captions
+          'gi-1': 'Kamar tidur modern dengan desain minimalis dan pencahayaan natural',
+          'gi-2': 'Dapur modern dengan kitchen set custom berkualitas tinggi',
+          'gi-3': 'Kitchen set built-in dengan material premium dan finishing rapi',
+          'gi-4': 'Ruang santai elegan dengan furnitur custom dan konsep terbuka',
+          'gi-5': 'Desain interior eksklusif dengan sentuhan artistik modern',
+          'gi-6': 'Interior ruang dengan pencahayaan ambient yang hangat dan nyaman',
+          'gi-7': 'Ruang keluarga luas dengan penataan furnitur fungsional dan estetis',
+          'gi-8': 'Built-in cabinet custom dengan desain minimalis dan storage optimal',
+          'gi-9': 'Walk-in closet dengan sistem penyimpanan terorganisir dan rapi',
+          // Gallery Konstruksi captions
+          'gk-1': 'Proyek konstruksi bangunan dengan struktur kokoh dan presisi tinggi',
+          'gk-2': 'Konstruksi gedung komersial dengan standar kualitas internasional',
+          'gk-3': 'Pembangunan gedung komersial skala besar dengan teknologi konstruksi modern',
+          'gk-4': 'Proyek renovasi dan pembangunan gedung dengan hasil terbaik',
+          'gk-5': 'Konstruksi hotel dengan finishing premium dan detail arsitektur halus',
+          'gk-6': 'Pembangunan rumah tinggal dengan desain modern dan struktural kuat',
+          'gk-7': 'Proyek konstruksi terintegrasi dari pondasi hingga finishing eksterior',
+          'gk-8': 'Sistem MEP — mekanikal, elektrikal, dan plumbing standar engineering',
+          'gk-9': 'Interior dan konstruksi ruang kantor modern dengan desain ergonomis',
+          'gk-10': 'Rendering villa mewah dengan infinity pool, outdoor lounge dan taman tropis',
+          'gk-11': 'Rendering rumah 2 lantai modern saat malam dengan kolam kecil dan taman depan elegan',
+          'gk-12': 'TV wall dengan backdrop marble coklat premium, cabinet abu-abu gold dan lemari display mewah',
+          'gk-13': 'Kitchen cabinet dengan rak atas custom dan meja granit dalam proses instalasi',
+          'gk-14': 'Proses pemasangan cabinet cermin dan TV wall hitam kamar tidur mewah',
+          'gk-15': 'Kamar tidur dengan headboard backdrop kayu dan ambient lighting kuning hangat',
+          'gk-16': 'Tim pekerja memasang panel gypsum dinding dan material interior dengan presisi',
+          'gk-17': 'Proses pemasangan panel kayu dan dekorasi kolom bulat pada interior cafe komersial',
+          'gk-18': 'Pemasangan panel dinding interior dengan sistem track lighting modern terintegrasi',
+          'gk-19': 'Interior komersial dengan wallpaper mural tropical dan counter marmer dalam progres',
+          'gk-20': 'Interior rumah tahap konstruksi dengan tangga beton, plafon dan area kolam renang',
+          'gk-21': 'Struktur bata rumah 2 lantai dengan genteng hitam siap pasang dan scaffolding',
+          'gk-22': 'Sistem MEP ceiling gedung komersial dengan ducting AC, pipa, dan instalasi elektrikal',
+        },
+        en: {
+          'nav-home': 'Home',
+          'nav-services': 'Services',
+          'nav-about': 'About',
+          'nav-gallery': 'Gallery',
+          'nav-contact': 'Contact',
+          'hero-title': 'General Contractor Construction & Interior',
+          'hero-description': 'Every detail determines the beauty and strength of a building. With a combination of precision construction services and exclusive interior design, we create the best space for you.',
+          'hero-cta': 'Free Consultation',
+          'services-title': 'Our Services',
+          'services-subtitle': 'Complete construction, interior design, and custom furniture production services for your residential & commercial projects.',
+          'service-gc-title': 'General Construction',
+          'sw-title': 'Structural Works',
+          'sw-1': 'Foundation',
+          'sw-2': 'Reinforced concrete',
+          'sw-3': 'Structural renovation',
+          'aw-title': 'Architectural Works',
+          'aw-1': 'Wall work & finishing',
+          'aw-2': 'Ceiling',
+          'aw-3': 'Flooring',
+          'aw-4': 'Building facade',
+          'mep-title': 'MEP',
+          'mep-sub': 'Mechanical, Electrical & Plumbing',
+          'mep-1': 'Electrical installation',
+          'mep-2': 'Plumbing & sanitation',
+          'mep-3': 'AC & ventilation system',
+          'mep-4': 'Clean & waste water system',
+          'le-title': 'Landscape & Exterior',
+          'le-1': 'Hardscape & softscape',
+          'le-2': 'Garden',
+          'le-3': 'Commercial outdoor area',
+          'service-interior-title': 'Interior & Custom Furniture Production',
+          'scope-title': 'Project Scope',
+          'scope-subtitle': 'Types of projects we handle',
+          'residential-title': 'Residential Projects',
+          'res-1': 'Private home',
+          'res-2': 'Boarding house',
+          'res-3': 'Villa',
+          'res-4': 'Apartment',
+          'res-5': 'Home renovation',
+          'commercial-title': 'Commercial Projects',
+          'com-1': 'Café & Restaurant',
+          'com-2': 'Retail Store',
+          'com-3': 'Office',
+          'com-4': 'Hospitality',
+          'value-title': 'Why Choose Us?',
+          'value-subtitle': 'Advantages that set us apart',
+          'value-1': 'Years Experience',
+          'value-2': 'Integrated Construction System',
+          'value-3': 'In-House Interior Production',
+          'value-4': 'Transparent Budgeting',
+          'value-5': 'On-Time Project Delivery',
+          'about-label': 'About Us',
+          'about-title': 'Integrated Construction <span class="text-amber-300">&amp; Interior</span> Solutions in Bali',
+          'about-p1': 'Elditi Projects is a construction and interior company based in Bali, with over 9 years of experience handling residential and commercial projects.',
+          'about-p2': 'We handle projects in an integrated manner, including structural, architectural, MEP, landscape work, as well as interior production and custom furniture with high precision standards.',
+          'about-stat1': 'Years of<br>Experience',
+          'about-stat2': 'Projects<br>Completed',
+          'about-stat3': 'Satisfied<br>Clients',
+          'gallery-title': 'Our Portfolio',
+          'gallery-subtitle': 'See our best work',
+          'gallery-tab-interior': 'Interior Design',
+          'gallery-tab-konstruksi': 'Construction',
+          'contact-title': 'Contact Us Now',
+          'contact-subtitle': 'Ready to bring your dream interior to life with professional and trusted solutions',
+          'contact-info-title': 'Contact Information',
+          'phone-label': 'Phone Number',
+          'email-label': 'Email Address',
+          'address-label': 'Our Office',
+          'maps-title': 'Our Location',
+          'cta-title': 'Free Interior Design Consultation',
+          'cta-desc': 'Get professional advice from our experienced team of architects and designers at no cost.',
+          'cta-btn': 'Start Free Consultation',
+          'footer-about': 'A construction and interior company based in Bali, with over 9 years of experience handling residential and commercial projects.',
+          'footer-menu': 'Menu',
+          'footer-home': 'Home',
+          'footer-services': 'Services',
+          'footer-about-link': 'About Us',
+          'footer-gallery': 'Portfolio',
+          'footer-contact': 'Contact',
+          'footer-social': 'Social Media',
+          'footer-contact-title': 'Contact Us',
+          'footer-contact-desc': 'Reach our team through the various communication channels available.',
+          'footer-copyright': '© 2024 Elditi Kreativa Nusantara. All Rights Reserved.',
+          'footer-tagline': 'Professional Interior Design and Construction Services - Bali, Indonesia',
+          // Gallery Interior captions
+          'gi-1': 'Modern bedroom with minimalist design and natural lighting',
+          'gi-2': 'Modern kitchen with high-quality custom kitchen set',
+          'gi-3': 'Built-in kitchen set with premium materials and neat finishing',
+          'gi-4': 'Elegant lounge with custom furniture and open concept',
+          'gi-5': 'Exclusive interior design with a modern artistic touch',
+          'gi-6': 'Room interior with warm and cozy ambient lighting',
+          'gi-7': 'Spacious living room with functional and aesthetic furniture layout',
+          'gi-8': 'Custom built-in cabinet with minimalist design and optimal storage',
+          'gi-9': 'Walk-in closet with an organized and tidy storage system',
+          // Gallery Konstruksi captions
+          'gk-1': 'Building construction project with solid structure and high precision',
+          'gk-2': 'Commercial building construction with international quality standards',
+          'gk-3': 'Large-scale commercial building construction with modern technology',
+          'gk-4': 'Building renovation and construction project with the best results',
+          'gk-5': 'Hotel construction with premium finishing and refined architectural detail',
+          'gk-6': 'Residential house construction with modern design and strong structure',
+          'gk-7': 'Integrated construction project from foundation to exterior finishing',
+          'gk-8': 'MEP system — mechanical, electrical, and plumbing to engineering standards',
+          'gk-9': 'Modern office interior and construction with ergonomic design',
+          'gk-10': 'Luxury villa rendering with infinity pool, outdoor lounge and tropical garden',
+          'gk-11': 'Modern 2-story house rendering at night with small pool and elegant front garden',
+          'gk-12': 'TV wall with premium brown marble backdrop, gold cabinet and luxurious display shelves',
+          'gk-13': 'Kitchen cabinet with custom upper shelves and granite countertop in installation process',
+          'gk-14': 'Installation of mirror cabinet and black TV wall for luxury bedroom',
+          'gk-15': 'Bedroom with wood headboard backdrop and warm yellow ambient lighting',
+          'gk-16': 'Work team installing gypsum wall panels and interior materials with precision',
+          'gk-17': 'Installation of wooden panels and round column decoration for commercial cafe interior',
+          'gk-18': 'Interior wall panel installation with integrated modern track lighting system',
+          'gk-19': 'Commercial interior with tropical mural wallpaper and marble counter in progress',
+          'gk-20': 'House interior under construction with concrete staircase, ceiling and pool area',
+          'gk-21': '2-story brick house structure with black roof tiles ready to install and scaffolding',
+          'gk-22': 'Commercial building MEP ceiling system with AC ducting, pipes and electrical installation',
+        }
+      };
+
+      let currentLang = 'id';
+
+      function applyTranslations(lang) {
+        const t = translations[lang];
+        // Text elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (t[key] !== undefined) el.textContent = t[key];
+        });
+        // HTML elements (for those with inner spans like about-title, stats)
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+          const key = el.getAttribute('data-i18n-html');
+          if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+        // Stats use innerHTML for <br>
+        ['about-stat1','about-stat2','about-stat3'].forEach(key => {
+          const el = document.querySelector(`[data-i18n="${key}"]`);
+          if (el && t[key] !== undefined) el.innerHTML = t[key];
+        });
+      }
+
+      function toggleLanguage() {
+        currentLang = currentLang === 'id' ? 'en' : 'id';
+        applyTranslations(currentLang);
+
+        // Update button labels
+        const isEn = currentLang === 'en';
+        const flag = isEn ? '🇮🇩' : '🇺🇸';
+        const label = isEn ? 'ID' : 'EN';
+
+        const flagEl = document.getElementById('lang-flag');
+        const labelEl = document.getElementById('lang-label');
+        const flagMobile = document.getElementById('lang-flag-mobile');
+        const labelMobile = document.getElementById('lang-label-mobile');
+
+        if (flagEl) flagEl.textContent = flag;
+        if (labelEl) labelEl.textContent = label;
+        if (flagMobile) flagMobile.textContent = flag;
+        if (labelMobile) labelMobile.textContent = label;
+
+        // Update html lang attribute
+        document.documentElement.lang = currentLang;
+      }
+
+      // Apply default language on load
+      applyTranslations(currentLang);
+    </script>
+  </body>
 </html>
