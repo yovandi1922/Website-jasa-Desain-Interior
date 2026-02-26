@@ -1541,7 +1541,7 @@
               <div>
                 <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="email-label">Alamat Email</h3>
                 <a href="mailto:ldtinteriorindo@gmail.com" class="text-blue-600 hover:text-blue-700 text-lg font-semibold break-all">
-                  ldtinteriorindo@gmail.com
+                  elditikreativanusantara@gmail.com
                 </a>
               </div>
 
@@ -2319,84 +2319,21 @@
       <source src="mp3/music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Splash Screen Overlay -->
-    <div id="splash-screen" style="
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1208 50%, #0a0a0a 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 24px;
-      cursor: pointer;
-    " onclick="enterSite()">
-      <div style="text-align: center;">
-        <div style="
-          font-family: 'Cinzel', serif;
-          font-size: clamp(28px, 5vw, 52px);
-          font-weight: 700;
-          color: #b8860b;
-          letter-spacing: 6px;
-          text-transform: uppercase;
-          margin-bottom: 8px;
-        ">Interiora Design</div>
-        <div style="
-          font-family: 'Montserrat', sans-serif;
-          font-size: clamp(11px, 1.5vw, 14px);
-          color: #a0896a;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-        ">Jasa Desain Interior Profesional</div>
-      </div>
-
-      <div style="
-        width: 1px;
-        height: 60px;
-        background: linear-gradient(to bottom, transparent, #b8860b, transparent);
-      "></div>
-
-      <button style="
-        font-family: 'Cinzel', serif;
-        font-size: 13px;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: #0a0a0a;
-        background: linear-gradient(135deg, #b8860b, #d4a017);
-        border: none;
-        padding: 14px 48px;
-        cursor: pointer;
-        border-radius: 2px;
-        box-shadow: 0 0 30px rgba(184,134,11,0.4);
-        animation: splashPulse 2s ease-in-out infinite;
-      " onclick="enterSite()">Masuk</button>
-
-      <div style="
-        font-family: 'Montserrat', sans-serif;
-        font-size: 11px;
-        color: #5a4a2a;
-        letter-spacing: 2px;
-      ">Klik di mana saja untuk melanjutkan</div>
-    </div>
-
-    <style>
-      @keyframes splashPulse {
-        0%, 100% { box-shadow: 0 0 20px rgba(184,134,11,0.4); }
-        50%       { box-shadow: 0 0 40px rgba(184,134,11,0.8); }
-      }
-    </style>
-
     <script>
       const music = document.getElementById('bg-music');
-      const splash = document.getElementById('splash-screen');
+      let musicStarted = false;
 
-      function enterSite() {
-        music.play().catch(() => {});
-        splash.style.transition = 'opacity 0.8s ease';
-        splash.style.opacity = '0';
-        setTimeout(() => { splash.style.display = 'none'; }, 800);
+      function playOnScroll() {
+        if (!musicStarted) {
+          music.play().then(() => {
+            musicStarted = true;
+            window.removeEventListener('scroll', playOnScroll);
+          }).catch(() => {});
+        }
       }
+
+      window.addEventListener('scroll', playOnScroll);
     </script>
   </body>
 </html>
+
